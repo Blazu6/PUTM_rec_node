@@ -1,0 +1,15 @@
+[Unit]
+Description=rosbag_rec
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=blazu
+WorkingDirectory=/home/blazu
+ExecStart=/bin/bash -c 'source /opt/ros/humble/setup.bash && source /home/blazu/ros2_ws/install/setup.bash && /home/blazu/Desktop/Bash/rosbag.sh' #tu podmienic ściezki
+Restart=on-failure
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
