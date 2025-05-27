@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BAG_DIR="/home/blazu/Desktop/rosbag"
+BAG_DIR="/home/putm/rosbagservice"
 
 mkdir -p "$BAG_DIR"
 
