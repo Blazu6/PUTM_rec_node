@@ -7,7 +7,7 @@ Wants=network-online.target
 Type=simple
 User=blazu
 WorkingDirectory=/home/blazu
-ExecStart=/bin/bash -c 'source /opt/ros/humble/setup.bash && source /home/blazu/ros2_ws/install/setup.bash && /home/blazu/Desktop/Bash/rosbag.sh' #tu podmienic ściezki
+ExecStart=/bin/bash -c 'source /opt/ros/humble/setup.bash && source /home/putm/putm_ws/setup.bash && /rosbag.sh' #tu podmienic ściezki
 Restart=on-failure
 KillSignal=SIGINT
 
