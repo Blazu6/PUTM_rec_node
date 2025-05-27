@@ -7,8 +7,8 @@ Wants=network-online.target
 Type=simple
 User=blazu
 WorkingDirectory=/home/blazu
-ExecStart=/bin/bash -c 'source /opt/ros/humble/setup.bash && source /home/putm/putm_ws/install/setup.bash && etc/usr/bin/rosbag.sh' #to sprawdzic jeszcze dokładnie
-Restart=on-failure
+ExecStart=/bin/bash -c 'source /opt/ros/humble/setup.bash && source /home/putm/putm_ws/install/setup.bash && /usr/local/bin/rosbag.sh' #to sprawdzic jeszcze dokładnie
+Restart=on-failure.
 KillSignal=SIGINT
 
 [Install]
