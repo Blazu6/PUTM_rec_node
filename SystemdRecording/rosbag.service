@@ -13,3 +13,23 @@ KillSignal=SIGINT
 
 [Install]
 WantedBy=multi-user.target
+
+
+ten skrypt tylko podmienic sciezki nie musze sourcowac bo zrobie to w skrypcie
+[Unit]
+Description=ROS2 Bag Recorder Service
+After=network.target
+
+[Service]
+Type=simple
+User=blazu
+ExecStart=/home/blazu/Desktop/TestBashScript/rosbag.sh
+Restart=on-failure
+WorkingDirectory=/home/blazu/Desktop/TestBashScript
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+
