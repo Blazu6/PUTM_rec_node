@@ -10,6 +10,12 @@ exec ros2 bag record -a --max-bag-duration 1800 -o "$BAG_DIR/rosbag_$(date +%Y-%
 Ten skrypt ponizej dać na fure zmienic tylko foldery
 #!/bin/bash
 
+
+
+# Załaduj środowisko ROS2
+source /opt/ros/humble/setup.bash
+
+
 # Domyślny czas (w sekundach)
 DEFAULT_DURATION=1800
 
