@@ -1,20 +1,7 @@
 #!/bin/bash
 
-BAG_DIR="/home/putm/rosbagservice"
-
-mkdir -p "$BAG_DIR"
-
-exec ros2 bag record -a --max-bag-duration 1800 -o "$BAG_DIR/rosbag_$(date +%Y-%m-%d_%H-%M-%S)"
-
-
-Ten skrypt ponizej dać na fure zmienic tylko foldery
-#!/bin/bash
-
-
-
 # Załaduj środowisko ROS2
 source /opt/ros/humble/setup.bash
-
 
 # Domyślny czas (w sekundach)
 DEFAULT_DURATION=1800
@@ -38,7 +25,7 @@ else
 fi
 
 
-BAG_DIR="/home/blazu/Desktop/TestBashScript"
+BAG_DIR="/home/putm/rosbag_logs"
 
 mkdir -p "$BAG_DIR"
 
