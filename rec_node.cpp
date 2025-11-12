@@ -35,12 +35,28 @@ if (msg->state && !recording) {
 }
 
 void RecNode::start_recording() {
+    // Domyślny prefix
+    std::string prefix = "recording";
+
+    // 1. Wczytanie słowa z pliku konfiguracyjnego
+    std::ifstream config_file("/home/putm/rosbag.config");
+    if (config_file.is_open()) {
+        std::string file_word;
+        config_file >> file_word; // pobiera pierwsze słowo z pliku
+        if (!file_word.empty()) {
+            prefix = file_word; // nadpisujemy prefix tylko jeśli plik nie jest pusty
+        }
+        config_file.close();
+    } else {
+        std::cerr << "Nie udało się otworzyć pliku konfiguracyjnego. Używam domyślnej nazwy.\n";
+    }
+
     auto now = std::chrono::system_clock::now();
     auto time_t_now = std::chrono::system_clock::to_time_t(now);
     std::ostringstream oss;
-    oss << std::put_time(std::localtime(&time_t_now), "%Y-%m-%d_%H-%M-%S")
-    ;
-    std::string filename = "/home/putm/rosbag/recording_" + oss.str(); // Path to the directory where the recordings will be saved
+    oss << std::put_time(std::localtime(&time_t_now), "%Y-%m-%d_%H-%M-%S");
+    
+    std::string filename = "/home/putm/rosbag/" + prefix + "_" + oss.str(); // Path to the directory where the recordings will be saved
     
     pid_ = fork();
     if (pid_ == -1) {
