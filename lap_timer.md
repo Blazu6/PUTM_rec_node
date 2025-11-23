@@ -6,21 +6,23 @@ Stan programu jest przechowywany w zmiennej `m_state` typu `enum class State`.
 
 ### Diagram Przepływu
 
-```mermaid
 stateDiagram-v2
-    [*] --> WAITING_FOR_START: Uruchomienie węzła
+    [*] --> WAITING
+    
+    state "WAITING_FOR_START" as WAITING
+    note right of WAITING
+        Out Lap / Wyjazd z boksu
+    end note
 
-    state "WAITING_FOR_START" as WAITING {
-        note: Out Lap / Wyjazd z boksu
-    }
+    state "RECORDING_REFERENCE_LAP" as RECORDING
+    note right of RECORDING
+        Okrążenie 1: Budowanie mapy
+    end note
 
-    state "RECORDING_REFERENCE_LAP" as RECORDING {
-        note: Okrążenie 1: Budowanie mapy
-    }
-
-    state "LAPPING" as LAPPING {
-        note: Okrążenie 2+: Wyścig i Delta
-    }
+    state "LAPPING" as LAPPING
+    note right of LAPPING
+        Okrążenie 2+: Wyścig i Delta
+    end note
 
     WAITING --> RECORDING: Pierwsze przecięcie linii Start/Meta
     RECORDING --> LAPPING: Ukończenie pierwszego okrążenia
