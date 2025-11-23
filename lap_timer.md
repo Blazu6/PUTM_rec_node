@@ -6,6 +6,7 @@ Stan programu jest przechowywany w zmiennej `m_state` typu `enum class State`.
 
 ### Diagram Przepływu
 
+```mermaid
 stateDiagram-v2
     [*] --> WAITING
     
@@ -27,6 +28,7 @@ stateDiagram-v2
     WAITING --> RECORDING: Pierwsze przecięcie linii Start/Meta
     RECORDING --> LAPPING: Ukończenie pierwszego okrążenia
     LAPPING --> LAPPING: Kolejne przecięcia linii
+```
 
 ### Opis Stanów
 
